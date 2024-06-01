@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 @Table(name = "customer_order")
 public class Order {
 
+    /* wersja 1 klient do wielu zamówień i wielu produktów
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,5 +32,19 @@ public class Order {
     private List<Product> products;
 
     private Date orderDate;
+*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+/*połączenie z klientem */
+/* 
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+*/
+    @OneToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product product;
 
+    private Date orderDate;
 }
