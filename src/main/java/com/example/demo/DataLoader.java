@@ -19,11 +19,8 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Client client1 = new Client("Jan", "Kowalski", "jan.kowalski@example.com", "123456789");
-        clientRepository.save(client1);
-
-        Client client2 = new Client("Anna", "Nowak", "anna.nowak@example.com", "987654321");
-        clientRepository.save(client2);
+        clientRepository.save(new Client(null, "Jan", "Kowalski", "jan.kowalski@example.com", "123456789"));
+        clientRepository.save(new Client(null, "Anna", "Nowak", "anna.nowak@example.com", "987654321"));
 
         Product product1 = new Product("Product1", "Description1");
         productRepository.save(product1);
